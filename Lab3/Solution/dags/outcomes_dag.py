@@ -3,7 +3,7 @@ from airflow import DAG
 from airflow.operators.bash import BashOperator
 
 from datetime import datetime 
-
+import os
 SOURCE_URL = 'https://data.austintexas.gov/api/views/9t4d-g238/rows.csv'
 AIRFLOW_HOME = os.environ.get('AIRFLOW_HOME', '/opt/airflow')
 CSV_TARGET_DIR = AIRFLOW_HOME + '/data/{{ ds }}/downloads'
