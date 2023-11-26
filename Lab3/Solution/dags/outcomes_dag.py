@@ -4,19 +4,29 @@ from airflow.operators.bash import BashOperator
 
 from datetime import datetime 
 
+SOURCE_URL = 'https://data.austintexas.gov/api/views/9t4d-g238/rows.csv'
+AIRFLOW_HOME = os.environ.get('AIRFLOW_HOME', '/opt/airflow')
+CSV_TARGET_DIR = AIRFLOW_HOME + '/data/{{ ds }}/downloads'
+CSV_TARGET_FILE = CSV_TARGET_DIR+'outcomes_{{ ds }}.csv'
+
 with DAG(
     dag_id="outcomes_dag",
-    start_date= datetime(2023,11,1)
+    start_date= datetime(2023,11,23),
+    schedule_interval = '@daily'
+
 ) as dag: 
 
     step1 = BashOperator(
         task_id="step1",
-        bash_command="echo 1",
+        bash_command=f"curl -create-dirs -o {CSV_TARGET_FILE} {SOURCE_URL}",
     )
 
-    step2 = BashOperator(
-        task_id="step2",
-        bash_command="echo 2",
+    step2 = PythonOperator(
+        task_id="transform",
+        python_callable = transform_data,
+        op_kwargs = {
+            'source_csv' : CSV_TARGET_FILE
+        }
     )
 
     step1 >> step2

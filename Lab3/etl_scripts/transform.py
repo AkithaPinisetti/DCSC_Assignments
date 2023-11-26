@@ -9,10 +9,14 @@ outcomes_map = {'Rto-Adopt':1,
                 'Transfer':4,
                 'Return to Owner':5, 
                 'Died':6, 
-                'Disposal':7}
+                'Disposal':7,
+                'Missing':8,
+                'Relocate': 9,
+                'NA':10,
+                'Stolen':11}
 
-def transform_data(data):
-    new_data = data.copy()
+def transform_data(source_csv):
+    new_data = pd.read_csv(source_csv)
     new_data = prep_data(new_data)
 
     dim_animal = prep_animal_dim(new_data)
@@ -57,7 +61,8 @@ def prep_data(data):
 
     # prepare the data table for introducing the outcome type dimension:
     # introduce keys for the outcomes
-    data['outcome_type_id'] = data['Outcome Type'].replace(outcomes_map)
+    data['outcome_type_id'] = data['Outcome Type'].fillna('NA')
+    data['outcome_type_id'] = data['outcome_type_id'].replace(outcomes_map)
 
     return data
 
