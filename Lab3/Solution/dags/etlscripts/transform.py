@@ -15,7 +15,7 @@ outcomes_map = {'Rto-Adopt':1,
                 'NA':10,
                 'Stolen':11}
 
-def transform_data(source_csv):
+def transform_data(source_csv,target_dir):
     new_data = pd.read_csv(source_csv)
     new_data = prep_data(new_data)
 
@@ -25,13 +25,12 @@ def transform_data(source_csv):
 
     fct_outcomes = prep_outcomes_fct(new_data)
     
-    # We'll use a dictionary so that we could get simultaneously table name and contents when using to_sql
-    # note that fact table can only be updated after dimensions have been updated
-    return OrderedDict({'dim_animals':dim_animal, 
-            'dim_dates':dim_dates,
-            'dim_outcome_types':dim_outcome_types,
-            'fct_outcomes':fct_outcomes
-            })
+    Path(target_dir).mkdir(parents=True, exist_ok=True)
+
+    dim_animal.to_parquet(target_dir+'/dim_animals.parquet')
+    dim_dates.to_parquet(target_dir+'/dim_dates.parquet')
+    dim_outcome_types.to_parquet(target_dir+'/dim_outcome_types.parquet')
+    fct_outcomes.to_parquet(target_dir+'/fct_outcomes.parquet')
 
 
 def prep_data(data):
