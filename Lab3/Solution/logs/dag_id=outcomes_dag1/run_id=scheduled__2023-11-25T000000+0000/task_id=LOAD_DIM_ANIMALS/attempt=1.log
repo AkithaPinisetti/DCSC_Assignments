@@ -1,0 +1,71 @@
+[2023-11-26T05:34:31.810+0000] {logging_mixin.py:154} INFO - Changing /opt/***/logs/dag_id=outcomes_dag1/run_id=scheduled__2023-11-25T00:00:00+00:00/task_id=LOAD_DIM_ANIMALS permission to 509
+[2023-11-26T05:34:31.845+0000] {logging_mixin.py:154} INFO - Changing /opt/***/logs/dag_id=outcomes_dag1/run_id=scheduled__2023-11-25T00:00:00+00:00/task_id=LOAD_DIM_ANIMALS permission to 509
+[2023-11-26T05:34:31.877+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: outcomes_dag1.LOAD_DIM_ANIMALS scheduled__2023-11-25T00:00:00+00:00 [queued]>
+[2023-11-26T05:34:31.889+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: outcomes_dag1.LOAD_DIM_ANIMALS scheduled__2023-11-25T00:00:00+00:00 [queued]>
+[2023-11-26T05:34:31.891+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2023-11-26T05:34:32.051+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): LOAD_DIM_ANIMALS> on 2023-11-25 00:00:00+00:00
+[2023-11-26T05:34:32.057+0000] {standard_task_runner.py:57} INFO - Started process 423 to run task
+[2023-11-26T05:34:32.061+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'outcomes_dag1', 'LOAD_DIM_ANIMALS', 'scheduled__2023-11-25T00:00:00+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/Retry2.py', '--cfg-path', '/tmp/tmpzpcim4vc']
+[2023-11-26T05:34:32.064+0000] {standard_task_runner.py:85} INFO - Job 22: Subtask LOAD_DIM_ANIMALS
+[2023-11-26T05:34:32.117+0000] {logging_mixin.py:154} INFO - Changing /opt/***/logs/dag_id=outcomes_dag1/run_id=scheduled__2023-11-25T00:00:00+00:00/task_id=LOAD_DIM_ANIMALS permission to 509
+[2023-11-26T05:34:32.121+0000] {task_command.py:416} INFO - Running <TaskInstance: outcomes_dag1.LOAD_DIM_ANIMALS scheduled__2023-11-25T00:00:00+00:00 [running]> on host 42136bd2bf4d
+[2023-11-26T05:34:32.199+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='outcomes_dag1' AIRFLOW_CTX_TASK_ID='LOAD_DIM_ANIMALS' AIRFLOW_CTX_EXECUTION_DATE='2023-11-25T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-11-25T00:00:00+00:00'
+[2023-11-26T05:34:33.934+0000] {logging_mixin.py:154} INFO - Executing Create Table Queries...
+[2023-11-26T05:34:34.046+0000] {logging_mixin.py:154} INFO - Finished creating tables...
+[2023-11-26T05:34:34.048+0000] {logging_mixin.py:154} INFO - Dropping Table animaldimension
+[2023-11-26T05:34:34.161+0000] {logging_mixin.py:154} INFO - Loading data into PostgreSQL for table animaldimension
+[2023-11-26T05:34:58.283+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/ExtractTransformLoad_Steps/LoadData.py", line 154, in load_data_to_postgres
+    postgres_dataloader.load_data_into_postgres(postgres_connection, table_data_df, table_name)
+  File "/opt/airflow/dags/ExtractTransformLoad_Steps/LoadData.py", line 141, in load_data_into_postgres
+    gcp_data.to_sql(table_name, engine, if_exists='replace', index=False)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/generic.py", line 2878, in to_sql
+    return sql.to_sql(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 769, in to_sql
+    return pandas_sql.to_sql(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1548, in __exit__
+    self.exit_stack.close()
+  File "/usr/local/lib/python3.8/contextlib.py", line 533, in close
+    self.__exit__(None, None, None)
+  File "/usr/local/lib/python3.8/contextlib.py", line 525, in __exit__
+    raise exc_details[1]
+  File "/usr/local/lib/python3.8/contextlib.py", line 510, in __exit__
+    if cb(*exc_details):
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/util.py", line 237, in __exit__
+    self.rollback()
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/util.py", line 233, in __exit__
+    self.commit()
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2469, in commit
+    self._do_commit()
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2659, in _do_commit
+    self._connection_commit_impl()
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2630, in _connection_commit_impl
+    self.connection._commit_impl()
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1096, in _commit_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2138, in _handle_dbapi_exception
+    util.raise_(exc_info[1], with_traceback=exc_info[2])
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1094, in _commit_impl
+    self.engine.dialect.do_commit(self.connection)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 537, in connection
+    return self._revalidate_connection()
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 650, in _revalidate_connection
+    self._invalid_transaction()
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 622, in _invalid_transaction
+    raise exc.PendingRollbackError(
+sqlalchemy.exc.PendingRollbackError: Can't reconnect until invalid transaction is rolled back. (Background on this error at: https://sqlalche.me/e/14/8s2b)
+[2023-11-26T05:34:58.317+0000] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=outcomes_dag1, task_id=LOAD_DIM_ANIMALS, execution_date=20231125T000000, start_date=20231126T053431, end_date=20231126T053458
+[2023-11-26T05:34:58.331+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 22 for task LOAD_DIM_ANIMALS (Can't reconnect until invalid transaction is rolled back. (Background on this error at: https://sqlalche.me/e/14/8s2b); 423)
+[2023-11-26T05:34:58.368+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-11-26T05:34:58.388+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

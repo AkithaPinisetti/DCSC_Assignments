@@ -1,0 +1,48 @@
+[2023-11-26T06:39:21.819+0000] {logging_mixin.py:154} INFO - Changing /opt/***/logs/dag_id=outcomes_dag/run_id=manual__2023-11-26T06:39:19.354821+00:00/task_id=API_TO_GCP permission to 509
+[2023-11-26T06:39:21.856+0000] {logging_mixin.py:154} INFO - Changing /opt/***/logs/dag_id=outcomes_dag/run_id=manual__2023-11-26T06:39:19.354821+00:00/task_id=API_TO_GCP permission to 509
+[2023-11-26T06:39:21.892+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: outcomes_dag.API_TO_GCP manual__2023-11-26T06:39:19.354821+00:00 [queued]>
+[2023-11-26T06:39:21.906+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: outcomes_dag.API_TO_GCP manual__2023-11-26T06:39:19.354821+00:00 [queued]>
+[2023-11-26T06:39:21.908+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2023-11-26T06:39:22.188+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): API_TO_GCP> on 2023-11-26 06:39:19.354821+00:00
+[2023-11-26T06:39:22.199+0000] {standard_task_runner.py:57} INFO - Started process 1482 to run task
+[2023-11-26T06:39:22.205+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'outcomes_dag', 'API_TO_GCP', 'manual__2023-11-26T06:39:19.354821+00:00', '--job-id', '56', '--raw', '--subdir', 'DAGS_FOLDER/outcomes_dag.py', '--cfg-path', '/tmp/tmpgandctc7']
+[2023-11-26T06:39:22.212+0000] {standard_task_runner.py:85} INFO - Job 56: Subtask API_TO_GCP
+[2023-11-26T06:39:22.308+0000] {logging_mixin.py:154} INFO - Changing /opt/***/logs/dag_id=outcomes_dag/run_id=manual__2023-11-26T06:39:19.354821+00:00/task_id=API_TO_GCP permission to 509
+[2023-11-26T06:39:22.314+0000] {task_command.py:416} INFO - Running <TaskInstance: outcomes_dag.API_TO_GCP manual__2023-11-26T06:39:19.354821+00:00 [running]> on host 42136bd2bf4d
+[2023-11-26T06:39:22.456+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='outcomes_dag' AIRFLOW_CTX_TASK_ID='API_TO_GCP' AIRFLOW_CTX_EXECUTION_DATE='2023-11-26T06:39:19.354821+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-11-26T06:39:19.354821+00:00'
+[2023-11-26T06:39:24.137+0000] {logging_mixin.py:154} INFO - response :  <Response [200]>
+[2023-11-26T06:39:25.888+0000] {logging_mixin.py:154} INFO - response :  <Response [200]>
+[2023-11-26T06:39:27.528+0000] {logging_mixin.py:154} INFO - response :  <Response [200]>
+[2023-11-26T06:39:28.407+0000] {logging_mixin.py:154} INFO - response :  <Response [200]>
+[2023-11-26T06:39:28.962+0000] {logging_mixin.py:154} INFO - Writing data to GCS.....
+[2023-11-26T06:39:29.843+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/etlscripts/APItoGCP.py", line 102, in main
+    upload_to_gcs(shelter_data, gcs_bucket_name, gcs_file_path)
+  File "/opt/airflow/dags/etlscripts/APItoGCP.py", line 85, in upload_to_gcs
+    bucket = client_info.get_bucket(bucket_name)
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/client.py", line 782, in get_bucket
+    bucket.reload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/bucket.py", line 1075, in reload
+    super(Bucket, self).reload(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/_helpers.py", line 246, in reload
+    api_response = client._get_resource(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/client.py", line 387, in _get_resource
+    return self._connection.api_request(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/storage/_http.py", line 72, in api_request
+    return call()
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/api_core/retry.py", line 366, in retry_wrapped_func
+    return retry_target(
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/api_core/retry.py", line 204, in retry_target
+    return target()
+  File "/home/airflow/.local/lib/python3.8/site-packages/google/cloud/_http/__init__.py", line 494, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.Forbidden: 403 GET https://storage.googleapis.com/storage/v1/b/data_center_lab3?projection=noAcl&prettyPrint=false: akithap@plasma-backbone-406301.iam.gserviceaccount.com does not have storage.buckets.get access to the Google Cloud Storage bucket. Permission 'storage.buckets.get' denied on resource (or it may not exist).
+[2023-11-26T06:39:29.872+0000] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=outcomes_dag, task_id=API_TO_GCP, execution_date=20231126T063919, start_date=20231126T063921, end_date=20231126T063929
+[2023-11-26T06:39:29.893+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 56 for task API_TO_GCP (403 GET https://storage.googleapis.com/storage/v1/b/data_center_lab3?projection=noAcl&prettyPrint=false: akithap@plasma-backbone-406301.iam.gserviceaccount.com does not have storage.buckets.get access to the Google Cloud Storage bucket. Permission 'storage.buckets.get' denied on resource (or it may not exist).; 1482)
+[2023-11-26T06:39:29.952+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-11-26T06:39:29.981+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

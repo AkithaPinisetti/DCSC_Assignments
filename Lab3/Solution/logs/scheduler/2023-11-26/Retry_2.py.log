@@ -1,0 +1,98 @@
+[2023-11-26T05:24:42.336+0000] {processor.py:157} INFO - Started process (PID=230) to work on /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:24:42.338+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Retry_2.py for tasks to queue
+[2023-11-26T05:24:42.341+0000] {logging_mixin.py:154} INFO - [2023-11-26T05:24:42.340+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:24:42.411+0000] {logging_mixin.py:154} INFO - [2023-11-26T05:24:42.401+0000] {dagbag.py:346} ERROR - Failed to import: /opt/airflow/dags/Retry_2.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 342, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Retry_2.py", line 13, in <module>
+    from ExtractTransformLoad_Steps.TransformData import transform_data
+ModuleNotFoundError: No module named 'ExtractTransformLoad_Steps'
+[2023-11-26T05:24:42.416+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:24:42.445+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Retry_2.py took 0.112 seconds
+[2023-11-26T05:25:12.636+0000] {processor.py:157} INFO - Started process (PID=239) to work on /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:25:12.638+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Retry_2.py for tasks to queue
+[2023-11-26T05:25:12.641+0000] {logging_mixin.py:154} INFO - [2023-11-26T05:25:12.640+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:25:12.683+0000] {logging_mixin.py:154} INFO - [2023-11-26T05:25:12.674+0000] {dagbag.py:346} ERROR - Failed to import: /opt/airflow/dags/Retry_2.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 342, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Retry_2.py", line 13, in <module>
+    from ExtractTransformLoad_Steps.TransformData import transform_data
+ModuleNotFoundError: No module named 'ExtractTransformLoad_Steps'
+[2023-11-26T05:25:12.686+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:25:12.712+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Retry_2.py took 0.081 seconds
+[2023-11-26T05:25:43.161+0000] {processor.py:157} INFO - Started process (PID=249) to work on /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:25:43.163+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Retry_2.py for tasks to queue
+[2023-11-26T05:25:43.168+0000] {logging_mixin.py:154} INFO - [2023-11-26T05:25:43.167+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:25:43.223+0000] {logging_mixin.py:154} INFO - [2023-11-26T05:25:43.213+0000] {dagbag.py:346} ERROR - Failed to import: /opt/airflow/dags/Retry_2.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 342, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Retry_2.py", line 13, in <module>
+    from ExtractTransformLoad_Steps.TransformData import transform_data
+ModuleNotFoundError: No module named 'ExtractTransformLoad_Steps'
+[2023-11-26T05:25:43.227+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:25:43.261+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Retry_2.py took 0.107 seconds
+[2023-11-26T05:26:13.479+0000] {processor.py:157} INFO - Started process (PID=259) to work on /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:26:13.480+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Retry_2.py for tasks to queue
+[2023-11-26T05:26:13.483+0000] {logging_mixin.py:154} INFO - [2023-11-26T05:26:13.483+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:26:13.548+0000] {logging_mixin.py:154} INFO - [2023-11-26T05:26:13.542+0000] {dagbag.py:346} ERROR - Failed to import: /opt/airflow/dags/Retry_2.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 342, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Retry_2.py", line 13, in <module>
+    from ExtractTransformLoad_Steps.TransformData import transform_data
+ModuleNotFoundError: No module named 'ExtractTransformLoad_Steps.TransformData'
+[2023-11-26T05:26:13.551+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:26:13.577+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Retry_2.py took 0.102 seconds
+[2023-11-26T05:26:44.005+0000] {processor.py:157} INFO - Started process (PID=269) to work on /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:26:44.007+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Retry_2.py for tasks to queue
+[2023-11-26T05:26:44.011+0000] {logging_mixin.py:154} INFO - [2023-11-26T05:26:44.010+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:26:44.705+0000] {logging_mixin.py:154} INFO - [2023-11-26T05:26:44.700+0000] {dagbag.py:346} ERROR - Failed to import: /opt/airflow/dags/Retry_2.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 342, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Retry_2.py", line 14, in <module>
+    from ExtractTransformLoad_Steps.ExtractAPItoGCP import main
+ModuleNotFoundError: No module named 'ExtractTransformLoad_Steps.ExtractAPItoGCP'
+[2023-11-26T05:26:44.707+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:26:44.723+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Retry_2.py took 0.724 seconds
+[2023-11-26T05:27:15.164+0000] {processor.py:157} INFO - Started process (PID=280) to work on /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:27:15.165+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Retry_2.py for tasks to queue
+[2023-11-26T05:27:15.169+0000] {logging_mixin.py:154} INFO - [2023-11-26T05:27:15.168+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:27:15.712+0000] {logging_mixin.py:154} INFO - [2023-11-26T05:27:15.703+0000] {dagbag.py:346} ERROR - Failed to import: /opt/airflow/dags/Retry_2.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 342, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/Retry_2.py", line 15, in <module>
+    from ExtractTransformLoad_Steps.LoadData import load_data_to_postgres
+ModuleNotFoundError: No module named 'ExtractTransformLoad_Steps.LoadData'
+[2023-11-26T05:27:15.716+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:27:15.742+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Retry_2.py took 0.582 seconds
+[2023-11-26T05:27:45.838+0000] {processor.py:157} INFO - Started process (PID=291) to work on /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:27:45.840+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Retry_2.py for tasks to queue
+[2023-11-26T05:27:45.845+0000] {logging_mixin.py:154} INFO - [2023-11-26T05:27:45.845+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:27:46.555+0000] {processor.py:839} INFO - DAG(s) dict_keys(['outcomes_dag']) retrieved from /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:27:46.667+0000] {logging_mixin.py:154} INFO - [2023-11-26T05:27:46.666+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2023-11-26T05:27:46.770+0000] {logging_mixin.py:154} INFO - [2023-11-26T05:27:46.770+0000] {dag.py:3722} INFO - Setting next_dagrun for outcomes_dag to 2023-11-26T00:00:00+00:00, run_after=2023-11-27T00:00:00+00:00
+[2023-11-26T05:27:46.816+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Retry_2.py took 0.983 seconds
+[2023-11-26T05:28:17.265+0000] {processor.py:157} INFO - Started process (PID=302) to work on /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:28:17.267+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/Retry_2.py for tasks to queue
+[2023-11-26T05:28:17.270+0000] {logging_mixin.py:154} INFO - [2023-11-26T05:28:17.269+0000] {dagbag.py:536} INFO - Filling up the DagBag from /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:28:17.741+0000] {processor.py:839} INFO - DAG(s) dict_keys(['outcomes_dag']) retrieved from /opt/airflow/dags/Retry_2.py
+[2023-11-26T05:28:17.760+0000] {logging_mixin.py:154} INFO - [2023-11-26T05:28:17.760+0000] {dag.py:2941} INFO - Sync 1 DAGs
+[2023-11-26T05:28:17.778+0000] {logging_mixin.py:154} INFO - [2023-11-26T05:28:17.778+0000] {dag.py:3722} INFO - Setting next_dagrun for outcomes_dag to 2023-11-26T00:00:00+00:00, run_after=2023-11-27T00:00:00+00:00
+[2023-11-26T05:28:17.799+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/Retry_2.py took 0.537 seconds
