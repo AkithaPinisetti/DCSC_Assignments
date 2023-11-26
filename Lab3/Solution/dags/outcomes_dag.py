@@ -23,7 +23,7 @@ with DAG(
 
     step1 = BashOperator(
         task_id="step1",
-        bash_command=f"curl -create-dirs -o {CSV_TARGET_FILE} {SOURCE_URL}",
+        bash_command=f"curl -create-dirs -o {CSV_TARGET_FILE} {SOURCE_URL}"
     )
 
     step2 = PythonOperator(
