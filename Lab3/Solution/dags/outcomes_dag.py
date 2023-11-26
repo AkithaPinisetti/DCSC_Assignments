@@ -23,7 +23,9 @@ with DAG(
 
     step1 = BashOperator(
         task_id="step1",
+        bash_command = "cd /opt/airflow/data/2023-11-23/downloads",
         bash_command = "ls -ld"
+        bash_command
         # bash_command=f"curl -create-dirs -o {CSV_TARGET_FILE} {SOURCE_URL}",
     )
 
